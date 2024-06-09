@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insurance Management System - Registration</title>
+<link rel="stylesheet" href="style.css">
+
+<script type="text/javascript" language="javascript">
+function validation()
+{
+  var firstName = document.forms["form1"]["n1"].value;
+  var lastName = document.forms["form1"]["l1"].value;
+  var dob = document.forms["form1"]["d1"].value;
+  var address = document.forms["form1"]["a1"].value;
+  var contactNumber = document.forms["form1"]["m1"].value;
+  var email = document.forms["form1"]["e1"].value;
+
+  if(firstName == ""){
+    alert("First name can't be empty");
+    document.forms['form1']['n1'].focus();
+    return false;
+  }
+  if(!isNaN(firstName)){
+    alert("First name should be in alphabets");
+    document.forms['form1']['n1'].focus();
+    return false;
+  }
+  if(firstName.length < 2 || firstName.length > 20){
+    alert("First name must contain 2 to 20 characters");
+    document.forms['form1']['n1'].focus();
+    return false;
+  }
+
+  if(lastName == ""){
+    alert("Last name can't be empty");
+    document.forms['form1']['l1'].focus();
+    return false;
+  }
+  if(!isNaN(lastName)){
+    alert("Last name should be in alphabets");
+    document.forms['form1']['l1'].focus();
+    return false;
+  }
+  if(lastName.length < 2 || lastName.length > 20){
+    alert("Last name must contain 2 to 20 characters");
+    document.forms['form1']['l1'].focus();
+    return false;
+  }
+
+  if(dob == ""){
+    alert("Date of Birth can't be empty");
+    document.forms['form1']['d1'].focus();
+    return false;
+  }
+
+  if(address == ""){
+    alert("Address can't be empty");
+    document.forms['form1']['a1'].focus();
+    return false;
+  }
+
+  if(contactNumber == ""){
+    alert("Contact number can't be empty");
+    document.forms['form1']['m1'].focus();
+    return false;
+  }
+  if(isNaN(contactNumber)){
+    alert("Contact number should be in digits");
+    document.forms['form1']['m1'].focus();
+    return false;
+  }
+  if(contactNumber.length !== 10){
+    alert("Contact number should be 10 digits");
+    document.forms['form1']['m1'].focus();
+    return false;
+  }
+
+  var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  if(!email.match(emailPattern)){
+    alert("Enter a valid email address");
+    document.forms['form1']['e1'].focus();
+    return false;
+  }
+
+  return true;
+}
+</script>
+<style>
+button, table, form, tr, td, h1 {text-align:center; align:center; border:collapse;}
+</style>
+</head>
+<body bgcolor="lightgrey">
+<form name="form1" method="post" action="rim.php">
+<h1 style="color:blue">Insurance Management System</h1>
+<h2 align="center" style="color:gray">Registration Form</h2>
+<center>
+<fieldset>
+<table border="1" align="center" bgcolor='lightyellow' height=70% width=30%  >
+<tr>
+<td>First Name </td><td> <input name="n1" type="text" placeholder="Enter your first name" required autofocus></td>
+</tr>
+<tr>
+<td>Last Name</td><td> <input name="l1" type="text" placeholder="Enter your last name" required></td>
+</tr>
+<tr>
+<td>D.O.B   </td><td><input name="d1" type="date" placeholder="Enter your DOB" required></td>
+</tr>
+<tr>
+<td>Gender</td><td> <input type="radio" name="g1" value="MALE">Male
+           <input type="radio" name="g1" value="FEMALE">Female</td>
+</tr>
+<tr>
+<td>Address </td><td> <input name="a1" type="text" placeholder="Enter your Address" required></td>
+</tr>
+<tr>
+<td>Contact No. </td><td><input name="m1" type="text" placeholder="**********" required></td>
+</tr>
+<tr>
+<td>Email-ID </td><td>  <input  name="e1" type="email" placeholder="abc@gmail.com" required></td>
+</tr>
+<tr>
+<td>Blood Group</td>
+<td><select name='blg[]'>
+    <option value="-">-select-</option>
+    <option value="o+">O+</option>
+    <option value="o-">O-</option>
+    <option value="b+">B+</option>
+    <option value="ab+">AB+</option>
+</select>
+</td>
+</tr>
+</table>
+<button type="submit" style="background-color:green; color:white;" name="submit" value="submit" onclick="validation()">SUBMIT</button>
+</fieldset>
+</center>
+</form>
+</body>			
+</html>
